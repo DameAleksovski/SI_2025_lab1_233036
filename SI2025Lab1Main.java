@@ -71,9 +71,14 @@ class TaskManager {
 
     // 2. Find all completed tasks
     public List<Task> getCompletedTasks() {
-        // TODO: Implement logic to return completed tasks
-        return new ArrayList<>();
+    List<Task> completedTasks = new ArrayList<>();
+    for (Task task : tasks) {
+        if (task.isCompleted()) {
+            completedTasks.add(task);
+        }
     }
+    return completedTasks;
+}
 
     // 3. List tasks sorted by name
     public void sortTasksByName() {
@@ -82,8 +87,11 @@ class TaskManager {
 
     // 4. Sort tasks by priority
     public void sortTasksByPriority() {
-        // TODO: Implement sorting by priority logic
-    }
+    tasks.sort((task1, task2) -> {
+        // Sort in descending order (HIGH first, then MEDIUM, then LOW)
+        return task2.getPriority().compareTo(task1.getPriority());
+    });
+}
 
     // 5. Filter tasks by category
     public List<Task> filterByCategory(String category) {
@@ -114,21 +122,21 @@ class TaskManager {
     }
 }
 
-public class SI2025Lab1Main {
-    public static void main(String[] args) {
-        TaskManager manager = new TaskManager();
-        manager.addTask("Write report", Priority.HIGH, "Work");
-        manager.addTask("Submit assignment", Priority.MEDIUM, "School");
-        manager.addTask("Buy groceries", Priority.LOW, "Personal");
+public static void main(String[] args) {
+    TaskManager manager = new TaskManager();
+    manager.addTask("Write report", Priority.HIGH, "Work");
+    manager.addTask("Buy groceries", Priority.LOW, "Personal");
+    
+    // Mark one task as completed
+    manager.markTaskCompleted("Buy groceries");
 
-        System.out.println("Before removal:");
-        manager.printTasks();  // Print tasks before removal
+    System.out.println("All tasks:");
+    manager.printTasks();
 
-        // Remove a task by name
-        manager.removeTask("Submit assignment");
-
-        System.out.println("\nAfter removal:");
-        manager.printTasks();  // Print tasks after removal
+    System.out.println("\nCompleted tasks:");
+    List<Task> completed = manager.getCompletedTasks();
+    for (Task task : completed) {
+        System.out.println(task);
     }
 }
 

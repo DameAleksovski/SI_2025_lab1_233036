@@ -1,0 +1,93 @@
+1. username - DameAleksovski
+2. rename Repository default branch - main -> master
+3. Repository_name - SI_2025_lab1_233036
+4. git/bash commands - 
+	mkdir SI_2025_lab1_233036   
+	cd SI_2025_lab1_233036
+	git init
+5. connect origin to remote repository
+	git remote add origin https://github.com/DameAleksovski/SI_2025_lab1_233036.git
+6. Create and add README.md 
+	nano README.md
+	git add README.md
+	git commit -m "Initial commit"
+7. Create java file and commit
+	git add SI2025Lab1Main.java
+	git commit -m "Add starter code"
+8. git push origin master
+9. created a project named SI2025 with Kanban template.
+10. put 9 issues into backlog
+11. moved 3 issues from backlog to in progress
+12. creating branches for the three problems
+	git checkout -b issue-1-remove-task-by-name
+	git push origin issue-1-remove-task-by-name
+	git checkout -b issue-2-find-all-completed-tasks
+	git push origin issue-2-find-all-completed-tasks
+	git checkout -b issue-3-sort-tasks-by-priority
+	git push origin issue-3-sort-tasks-by-priority
+13. git fetch origin
+14. git checkout -b issue-1-remove-task-by-name
+15. // Remove a task by name
+public void removeTask(String name) {
+    tasks.removeIf(task -> task.getName().equals(name));
+}
+
+public class SI2025Lab1Main {
+    public static void main(String[] args) {
+        TaskManager manager = new TaskManager();
+        manager.addTask("Write report", Priority.HIGH, "Work");
+        manager.addTask("Submit assignment", Priority.MEDIUM, "School");
+        manager.addTask("Buy groceries", Priority.LOW, "Personal");
+
+        System.out.println("Before removal:");
+        manager.printTasks();  // Print tasks before removal
+
+        // Remove a task by name
+        manager.removeTask("Submit assignment");
+
+        System.out.println("\nAfter removal:");
+        manager.printTasks();  // Print tasks after removal
+    }
+}
+
+16. git commit -m "Implemented remove task by name"
+17. $ git push origin issue-1-remove-task-by-name
+18. no issues on the third task and repeat for the first one and the second one
+19. finished another 2 pull requests
+20. ran into a conflict with the task removal by name function, i solved it with opening the web editor in GitHub and solving the issue by deleting the conflict than
+verifying that is okay (first i tried to solve it into git bash but i ran into some problems unfortunatly)
+<<<<<<< issue-3-sort-tasks-by-priority
+        System.out.println("Before removal:");
+        manager.printTasks();  // Print tasks before removal
+
+        // Remove a task by name
+        manager.removeTask("Submit assignment");
+
+        System.out.println("\nAfter removal:");
+        manager.printTasks();  // Print tasks after removal
+=======
+public static void main(String[] args) {
+    TaskManager manager = new TaskManager();
+    manager.addTask("Write report", Priority.HIGH, "Work");
+    manager.addTask("Buy groceries", Priority.LOW, "Personal");
+    
+    // Mark one task as completed
+    manager.markTaskCompleted("Buy groceries");
+
+    System.out.println("All tasks:");
+    manager.printTasks();
+
+    System.out.println("\nCompleted tasks:");
+    List<Task> completed = manager.getCompletedTasks();
+    for (Task task : completed) {
+        System.out.println(task);
+>>>>>>> master
+    }
+i resolved by removing the conflicts === and >>>>
+21. Succesfuly moved the 2 issues from in progress to done
+22. git checkout master, git pull origin master, git merge issue-3-sort-tasks-by-priority
+23. git pull origin master, git status
+24. successful move the third issue from in progress to done
+25.  git log --oneline --graph --all > logs.txt, git add logs.txt 233036.txt
+git commit -m "Final commit"
+26. git checkout master, git pull origin master, git push origin master

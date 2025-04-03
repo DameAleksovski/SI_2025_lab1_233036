@@ -1,0 +1,22 @@
+*   220e330 Merge pull request #10 from DameAleksovski/issue-3-sort-tasks-by-priority
+|\  
+| *   b3a7e1e Merge branch 'master' into issue-3-sort-tasks-by-priority
+| |\  
+| |/  
+|/|   
+* |   98e9059 Merge pull request #13 from DameAleksovski/issue-1-remove-task-by-name
+|\ \  
+| * \   961ac39 Merge branch 'master' into issue-1-remove-task-by-name
+| |\ \  
+| |/ /  
+|/| |   
+* | |   9b2f332 Merge pull request #11 from DameAleksovski/issue-2-find-all-completed-tasks
+|\ \ \  
+| * | | 17d2fe3 Implement getCompletedTasks() method and test in main()
+|/ / /  
+| * / 9d1f2ca Implement sortTasksByPriority() method and test in main()
+|/ /  
+| * 9733feb Implemented remove task by name
+|/  
+* c8fa070 Add starter code
+* c1bb3f9 Initial commit

@@ -63,9 +63,11 @@ class TaskManager {
     // MISSING FEATURES:
 
     // 1. Remove a task by name
-    public void removeTask(String name) {
-        // TODO: Implement removal logic
-    }
+    // Remove a task by name
+	public void removeTask(String name) {
+    	tasks.removeIf(task -> task.getName().equals(name));
+	}
+
 
     // 2. Find all completed tasks
     public List<Task> getCompletedTasks() {
@@ -119,8 +121,14 @@ public class SI2025Lab1Main {
         manager.addTask("Submit assignment", Priority.MEDIUM, "School");
         manager.addTask("Buy groceries", Priority.LOW, "Personal");
 
-        // MISSING: Calls to the new methods that will be implemented
+        System.out.println("Before removal:");
+        manager.printTasks();  // Print tasks before removal
 
-        manager.printTasks();
+        // Remove a task by name
+        manager.removeTask("Submit assignment");
+
+        System.out.println("\nAfter removal:");
+        manager.printTasks();  // Print tasks after removal
     }
 }
+

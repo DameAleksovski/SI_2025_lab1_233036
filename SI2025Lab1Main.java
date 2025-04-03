@@ -85,8 +85,11 @@ class TaskManager {
 
     // 4. Sort tasks by priority
     public void sortTasksByPriority() {
-        // TODO: Implement sorting by priority logic
-    }
+    tasks.sort((task1, task2) -> {
+        // Sort in descending order (HIGH first, then MEDIUM, then LOW)
+        return task2.getPriority().compareTo(task1.getPriority());
+    });
+}
 
     // 5. Filter tasks by category
     public List<Task> filterByCategory(String category) {
@@ -116,6 +119,7 @@ class TaskManager {
         // TODO: Implement bulk completion logic
     }
 }
+
 
 public static void main(String[] args) {
     TaskManager manager = new TaskManager();
